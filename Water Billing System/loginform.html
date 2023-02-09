@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Water Billing System Login</title>
+    <style>
+      /* Add some styling to the form */
+      form {
+        width: 300px;
+        margin: 50px auto;
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px #ccc;
+        transition: all 0.5s ease-in-out;
+      }
+      form:hover {
+        box-shadow: 4px 4px 10px #ccc;
+        transform: translate(2px, 2px);
+      }
+      label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+      }
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 5px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.5s ease-in-out;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 5px #ccc;
+      }
+      span {
+        color: red;
+        display: block;
+        margin-top: 10px;
+      }
+      
+body {
+	font-family: 'Arial' , sans-serif;
+	--webkit-font-smoothing: antialiased;
+	background: #000;
+	color: #999;
+	text-align: center;
+}
+    </style>
+    
+  </head>
+  <body>
+    <center><a href="front.html"><h1>Water Billing System</h1></a></center>
+      
+    <form id="login-form" action="billl.html">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <a href="index.html"><input type="submit" value="Login" click="index.html"></a>
+      
+      <span id="error-message"></span>
+      </form>
+      New User ?? Sign Up to continue.
+      <a href="signup.html"><input type="submit" value="Sign Up" onclick="signup.html"></a>
+    
+    
+    
+    <script>
+
+
+function returnText() {
+  input = document.getElementById("username").value
+  input = document.getElementById("password").value
+  localStorage.setItem('input', input)
+  alert(input)
+}
+
+console.log(input)
+function returnText() {
+  input = document.getElementById("userInput").value
+  localStorage.setItem('input', input)
+  alert(input)
+}
+
+console.log(input)
+      // Add JavaScript to handle form submission
+      const form = document.getElementById("login-form");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        if (!username || !password) {
+          document.getElementById("error-message").innerHTML = "Please enter a username and password.";
+        } else {
+          // Submit the form to the server (not shown here)
+          // ...
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>Contact Us</title>
+    <style>
+      /* Add your CSS styles here */
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: dodgerblue;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .success-message {
+        color: green;
+        font-size: 18px;
+        margin-top: 20px;
+        display: none;
+      }
+      nav {
+        background-color: #333;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-align: center;
+      }
+      body {
+	font-family: 'Arial' , sans-serif;
+	--webkit-font-smoothing: antialiased;
+	background: #000;
+	color: #999;
+	text-align: center;
+}
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <a href="front.html">Home</a>
+      <a href="About Us.html">About Us</a>
+      <a href="front.html">Services</a>
+      <a href="Contact Us.html">Contact Us</a>
+      <a href="paymemts.html">Payments</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="info.html">More Info</a>
+      <a href="billl.html">Water Bill</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+   <a href="front.html"><h1>Water Billing System</h1></a>
+    <h1> Fill this form to contact us.</h1>
+    <div class="form-container">
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" name="name" required />
+        <input type="email" placeholder="Your Email" name="email" required />
+        <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="success-message">Your message has been sent!</div>
+    </div>
+  </body>
+  <script>
+    // Add your JavaScript code here
+    const form = document.querySelector("#contact-form");
+    const successMessage = document.querySelector(".success-message");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      successMessage.style.display = "block";
+    });
+  </script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <style>
+        .faq-section {
+  width: 50%;
+  margin: 0 auto;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.question {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+nav {
+        background-color: #333;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-align: center;
+      }
+    
+body {
+	font-family: 'Arial' , sans-serif;
+	--webkit-font-smoothing: antialiased;
+	background: #000;
+	color: #999;
+	text-align: center;
+}
+    </style>
+</head>
+<body>
+
+  <nav>
+    <a href="front.html">Home</a>
+    <a href="About Us.html">About Us</a>
+    <a href="front.html">Services</a>
+    <a href="Contact Us.html">Contact Us</a>
+    <a href="paymemts.html">Payments</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="info.html">More Info</a>
+    <a href="billl.html">Water Bill</a>
+    <a href="signup.html">Sign Up</a>
+  </nav>
+    <center><a href="front.html"><h1>Water Billing System</h1></a></center>
+    <div class="faq-section">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-item">
+          <h3 class="question">    What is a water billing system?
+
+          </h3>
+          <div class="answer">
+            A water billing system is a software application that automates the process of tracking and billing for water usage in residential and commercial properties. The system typically uses smart meters to collect data on water consumption and transmit it to a central database for billing purposes.
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="question">What are the benefits of a water billing system?</h3>
+          <div class="answer">
+            The benefits of a water billing system include improved accuracy, faster and more efficient billing and payment processing times, improved customer service, and increased revenue for water utilities. The system can also help utilities to manage their resources more effectively and reduce costs.
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="question">What payment methods do you accept?</h3>
+          <div class="answer">
+            We accept only UPI Payments at present..
+          </div>
+        </div>
+        <!-- Add more FAQ items here -->
+        <div class="faq-item">
+            <h3 class="question">
+        Can customers view their water bills online?</h3>
+        <div class="answer">
+            Yes, many water billing systems offer online portals where customers can view their bills, make payments, and access their account information. This provides customers with convenient access to their billing information and allows them to manage their accounts more easily.
+            </div>
+        </div>
+      </div>
+      <script>
+        const questions = document.querySelectorAll('.question');
+
+questions.forEach(question => {
+  question.addEventListener('click', function() {
+    this.classList.toggle('active');
+    const answer = this.nextElementSibling;
+    answer.style.display === 'block'
+      ? (answer.style.display = 'none')
+      : (answer.style.display = 'block');
+  });
+});
+
+      </script>
+      
+</body>
+</html>

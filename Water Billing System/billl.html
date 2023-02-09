@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Bill</title>
+    <style>
+.container {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+.generate-btn {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bill, .qr-code {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+}
+    
+body {
+	font-family: 'Arial' , sans-serif;
+	--webkit-font-smoothing: antialiased;
+	background: #000;
+	color: #999;
+	text-align: center;
+}
+nav {
+        background-color: #333;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Water Bill Generator</h2>
+        <form>
+          <div class="form-group">
+            <label for="consumer-id">Consumer ID:</label>
+            <input type="text" id="consumer-id" name="consumer-id" required>
+          </div>
+          <div class="form-group">
+            <label for="consumer-name">Consumer Name:</label>
+            <input type="text" id="consumer-name" name="consumer-name" required>
+          </div>
+          <div class="form-group">
+            <label for="prev-reading">Previous Reading:</label>
+            <input type="number" id="prev-reading" name="prev-reading" required>
+          </div>
+          <div class="form-group">
+            <label for="curr-reading">Current Reading:</label>
+            <input type="number" id="curr-reading" name="curr-reading" required>
+          </div>
+          <div class="form-group">
+            <label for="upi-id">UPI ID:</label>
+            <input type="text" id="upi-id" name="upi-id" required>
+          </div>
+          <button type="submit" class="generate-btn">Generate Bill</button>
+        </form>
+        <div class="bill"></div>
+        <div class="qr-code"></div>
+      </div>
+      
+      
+    <script>
+        const form = document.querySelector('form');
+const billContainer = document.querySelector('.bill');
+const qrCodeContainer = document.querySelector('.qr-code');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const consumerId = document.querySelector('#consumer-id').value;
+  const consumerName = document.querySelector('#consumer-name').value;
+  const prevReading = document.querySelector('#prev-reading').value;
+  const currReading = document.querySelector('#curr-reading').value;
+  const upiId = document.querySelector('#upi-id').value;
+  
+  const unitsConsumed = currReading - prevReading;
+  const billAmount = unitsConsumed * 10;
+  
+  billContainer.innerHTML = `
+    <h3>Bill Details</h3>
+    <p>Consumer ID: ${consumerId}</p>
+    <p>Consumer Name: ${consumerName}</p>
+    <p>Units Consumed: ${unitsConsumed}</p>
+    <p>Bill Amount: ${billAmount}</p>
+  `;
+  
+  const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${upiId}&chs=200x200`;
+  qrCodeContainer.innerHTML = `
+    <h3>Pay via UPI</h3>
+    <img src="${qrCodeUrl}" alt="QR code">
+  `;
+});
+
+    </script>
+</body>
+</html>
